@@ -455,3 +455,4 @@ $RECYCLE.BIN/
 
 appsettings.json
 Api/appsettings.Development.json
+Api/appsettings.Production.json

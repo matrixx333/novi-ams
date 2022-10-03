@@ -14,13 +14,4 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  toggleRegister() {
-    this.registerMode = !this.registerMode;
-  }
-
-cancelRegisterMode(event: boolean) {
-    this.registerMode = event; 
-  }
-
 }

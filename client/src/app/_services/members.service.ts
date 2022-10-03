@@ -11,7 +11,8 @@ export class MembersService {
   baseUrl = `${environment.apiUrl}/members`;
   members: Member[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getMembers() {
     if (this.members.length > 0) return of(this.members);
