@@ -1,0 +1,18 @@
+#page {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+      "head"
+      "main";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+#head {
+    grid-area: head;
+    height: 80px;
+}
+
+#main {
+    grid-area: main
+}

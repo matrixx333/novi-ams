@@ -13,7 +13,7 @@ namespace Api.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped<IMembersService, MembersService>();
+            services.AddSingleton<IMembersHttpClient, MembersHttpClient>();
             return services;
         }        
     }

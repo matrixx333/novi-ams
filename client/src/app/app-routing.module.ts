@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [],
     children: [
       { path: 'members', component: MemberListComponent },
-      { path: 'members/:username', component: MemberDetailComponent }
+      { path: 'members/:uniqueID', component: MemberDetailComponent }
     ],
   },
   {

@@ -8,7 +8,7 @@ import { Member } from '../_models/member';
   providedIn: 'root',
 })
 export class MembersService {
-  baseUrl = `${environment.apiUrl}/users`;
+  baseUrl = `${environment.apiUrl}/members`;
   members: Member[] = [];
 
   constructor(private http: HttpClient) {}
@@ -23,26 +23,9 @@ export class MembersService {
     );
   }
 
-  getMember(username: string) {
-    const member = this.members.find((m) => m.username === username);
+  getMember(userGuid: string) {
+    const member = this.members.find((m) => m.uniqueID === userGuid);
     if (member !== undefined) return of(member);
-    return this.http.get<Member>(`${this.baseUrl}/${username}`);
-  }
-
-  updateMember(member: Member) {
-    return this.http.put(`${this.baseUrl}`, member).pipe(
-      map(() => {
-        const index = this.members.indexOf(member);
-        this.members[index] = member;
-      })
-    );
-  }
-
-  setMainPhoto(photoId: number) {
-    return this.http.put(`${this.baseUrl}/set-main-photo/${photoId}`, {});
-  }
-
-  deletePhoto(photoId: number) {
-    return this.http.delete(`${this.baseUrl}/delete-photo/${photoId}`);
-  }
+    return this.http.get<Member>(`${this.baseUrl}/${userGuid}`);
+  } 
 }

@@ -6,9 +6,9 @@ using Api.Models;
 
 namespace Api.Interfaces
 {
-    public interface IMembersService
+    public interface IMembersHttpClient
     {
-        Task<IEnumerable<MemberDto>> GetMembersAsync();
-        Task<MemberDto> GetMemberAsync(string userName);
+        Task<IEnumerable<Member>> GetMembersAsync();
+        Task<Member> GetMemberAsync(string userName);
     }
 }

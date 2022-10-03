@@ -1,3 +1,19 @@
+span {
+    float: right;
+}
+
+a {
+    color: black
+}
+
+a:hover {
+    color: #1d79ff;
+}
+
+i {
+    font-size: 1.7em;
+}
+
 .img-thumbnail {
     margin: 25px;
     width: 85%;
@@ -14,3 +30,13 @@
     border-top: none;
 }
 
+.card {
+    display: flex;
+    justify-items: center;
+}
+
+#links {
+    display: flex;
+    justify-items: right;
+    justify-content: space-evenly;
+}

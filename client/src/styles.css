@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+    overflow-y: scroll;
+  }
+
 .tab-panel {
     border: 1px solid #ddd;
     padding: 10px;
@@ -8,7 +12,7 @@
 
 .nav-tabs>li.open,
 .member-tabset>.nav-tabs>li:hover {
-    border-bottom: 4px solid #fbcdcf;
+    border-bottom: 4px solid #d5f3cd;
 }
 
 .member-tabset>.nav-tabs>li.open>a,
@@ -29,7 +33,7 @@
 }
 
 .member-tabset>.nav-tabs>li.active {
-    border-bottom: 4px solid #E95420;
+    border-bottom: 4px solid #51b432;
     position: relative;
 }
 

@@ -17,14 +17,16 @@ export class MemberDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadMember();
+    this.loadMember();  
+  }
 
-  
+  hasAddresses(): boolean {
+    return false;
   }
 
   loadMember() {
     this.memberService
-      .getMember(this.route.snapshot.paramMap.get('username'))
+      .getMember(this.route.snapshot.paramMap.get('uniqueID'))
       .subscribe((member) => {
         this.member = member;
       });

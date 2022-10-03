@@ -1,19 +1,53 @@
-import { Photo } from "./photo";
-    
-export interface Member {
-    id: number;
-    username: string;
-    photoUrl: string;
-    age: number;
-    knownAs: string;
-    created: Date;
-    lastActive: Date;
-    gender: string;
-    introduction: string;
-    lookingFor: string;
-    interests: string;
-    city: string;
-    country: string;
-    photos: Photo[];
-} 
+import { BillingAddress } from "./billingAddress";
+import { ShippingAddress } from "./shippingAddress";
+import { PersonalAddress } from "./personalAddress";
+import { CustomFields } from "./customFields";
+import { Group } from "./group";
 
+export interface Member {
+    uniqueID: string;
+    tenantID: string;
+    parentCustomerUniqueID: string;
+    name: string;
+    firstName: string;
+    lastName: string;
+    suffix: any;
+    active: boolean;
+    email: string;
+    phone: string;
+    mobile: string;
+    fax: string;
+    website: any;
+    county: string;
+    billingAddress: BillingAddress;
+    shippingAddress: ShippingAddress;
+    personalEmail: string;
+    personalPhone: any;
+    personalMobile: any;
+    personalAddress: PersonalAddress;
+    notes: any;
+    facebookUrl: any;
+    linkedInUrl: any;
+    instagramHandle: string;
+    twitterHandle: string;
+    memberProfile: string;
+    jobTitle: string;
+    image: string;
+    originalJoinDate: string | null;
+    memberSince: any;
+    membershipExpires: any;
+    memberStatus: string;
+    memberSubStatus: any;
+    hideOnWebsite: boolean;
+    hideContactInformation: boolean;
+    unsubscribeFromEmails: boolean;
+    approved: boolean;
+    autoRenew: boolean;
+    autoPay: boolean;
+    memberType: any;
+    customerType: string;
+    customFields: CustomFields;
+    specifiedSystemFields: string[];
+    quickBooksID: string;
+    groups: Group[];
+}

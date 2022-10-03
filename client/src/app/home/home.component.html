@@ -1,23 +1,10 @@
-<div class="container mt-5">
-  <div *ngIf="!registerMode" style="text-align: center">
-    <h1>Find your match</h1>
-    <p class="lead">
-      Come on in to view your matches.... all you need to do is sign up!
-    </p>
-    <div class="text-center">
-      <button (click)="toggleRegister()" class="btn btn-primary btn-lg me-2">
-        Register
-      </button>
-      <button class="btn btn-info btn-lg">Learn more</button>
-    </div>
-  </div>
-
-  <div *ngIf="registerMode" class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-register
-          (cancelRegister)="cancelRegisterMode($event)"
-        ></app-register>
+<div class="row">
+  <div class="col-12">        
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome!</h1>
+        <p class="col-md-8 fs-4">Thank you for visiting my demo. I hope you enjoy your experience!</p>
+        <button class="btn btn-primary btn-lg" routerLink="/members" type="button">Members Demo</button>
       </div>
     </div>
   </div>

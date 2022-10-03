@@ -1,36 +1,70 @@
 <div class="row" *ngIf="member">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" routerLink="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" routerLink="/members">Members</a></li>
+            <li class="breadcrumb-item"><strong>{{ member.name }}</strong></li>
+        </ol>
+    </nav>
     <div class="col-4">
-
         <div class="card">
-            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}"
-                class="card-img-top img-thumbnail">
+            <img src="../../../assets/user.png" alt="{{member.name}}" class="card-img-top img-thumbnail">
             <div class="card-body">
                 <div>
-                    <strong>Location:</strong>
-                    <p>{{member.city}}, {{member.country}}</p>
+                    <strong>Email:</strong>
+                    <p>{{member.email}}
+                        <span><a href="{{ 'mailto:' + member.email }}"><i class="fa fa-envelope-o"
+                                    aria-hidden="true"></i></a></span>
+                    </p>
                 </div>
                 <div>
-                    <strong>Age:</strong>
-                    <p>{{member.age}}</p>
+                    <strong>Phone:</strong>
+                    <p>{{member.phone}}</p>
                 </div>
                 <div>
-                    <strong>Last Active:</strong>
-                    <p>{{member.lastActive}}</p>
+                    <strong>Customer type:</strong>
+                    <p>{{member.customerType}}</p>
                 </div>
                 <div>
-                    <strong>Member since:</strong>
-                    <p>{{member.created}}</p>
+                    <strong>Member status:</strong>
+                    <p>{{member.memberStatus}}</p>
                 </div>
             </div>
             <div class="card-footer">
-                <div class="btn-group d-flex">
-                    <button class="btn btn-primary">Like</button>
-                    <button class="btn btn-success">Message</button>
+                <div id="links">
+                    <div><a href="{{ member.twitterHandle }}" target="_blank"><i class="fa fa-twitter-square"
+                                aria-hidden="true"></i></a></div>
+                    <div><a href="{{ member.instagramHandle }}" target="_blank"><i class="fa fa-instagram"
+                                aria-hidden="true"></i></a></div>
+                    <div><a href="{{ member.facebookUrl }}" target="_blank"><i id="fb" class="fa fa-facebook-square"
+                                aria-hidden="true"></i></a></div>
+                    <div><a href="{{ member.linkedInUrl }}" target="_blank"><i class="fa fa-linkedin-square"
+                                aria-hidden="true"></i></a></div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-8">
-        
+        <tabset class="member-tabset">
+            <tab heading="About">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis repellendus praesentium, ex,
+                    velit aliquid unde qui, sit sed a quo vel ad tenetur architecto impedit? Voluptates repellendus odio
+                    ab illo?</p>
+                <p>Alias minima veniam ad error delectus accusantium repellendus, nemo tenetur. Porro ipsam deserunt
+                    placeat impedit dolorum aut amet? Animi deserunt aliquam quos laborum possimus et, obcaecati
+                    dignissimos id consectetur sed.</p>
+                <p>A deserunt similique sint cupiditate, maxime debitis asperiores excepturi. Veniam error reiciendis
+                    velit eos, debitis, suscipit accusantium doloribus explicabo vero eaque a reprehenderit! Quis
+                    consequuntur non minus magnam ipsum dolor.</p>
+                <p>Nihil doloribus labore necessitatibus similique repellendus? Ipsa doloribus odit ducimus ut
+                    necessitatibus quod omnis enim molestiae nostrum eveniet totam ad doloremque inventore, eos
+                    similique esse consequuntur debitis sunt, blanditiis facilis!
+                    Possimus adipisci, suscipit, earum laborum necessitatibus iste minus distinctio aliquid sapiente
+                    laudantium praesentium. Odit amet debitis modi. Pariatur fugit, maxime iure perferendis sit aperiam
+                    libero quia inventore ipsa iste nihil!</p>
+            </tab>
+            <tab *ngIf="hasAddresses()" heading="Addresses"></tab>
+            <tab heading="Interests"></tab>
+        </tabset>
     </div>
 </div>

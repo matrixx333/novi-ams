@@ -8,33 +8,32 @@ using Api.Interfaces;
 using Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers
 {
     public class MembersController : BaseApiController
     {
-        private readonly IMembersService _membersService;
+        private readonly IMembersHttpClient _membersHttpClient;
+        private readonly IConfiguration _config;
 
-        public MembersController(IMembersService membersService)
+        public MembersController(IMembersHttpClient membersHttpClient, IConfiguration config) 
         {
-            _membersService = membersService;
+            _membersHttpClient = membersHttpClient;
+            _config = config;
         }
 
         [HttpGet()]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetMembers()
+        public async Task<ActionResult<IEnumerable<Member>>> GetMembers()
         {
-            var members = await _membersService.GetMembersAsync();
-            return Ok(members);
+            var members = await _membersHttpClient.GetMembersAsync();
+            return Ok(members.OrderBy(m => m.Name));
         }
 
-        [HttpGet("{userName}}")]
-        [AllowAnonymous]
+        [HttpGet("{uniqueId}")]
 
-        public async Task<ActionResult<MemberDto>> GetMember(string userName)
+        public async Task<ActionResult<Member>> GetMember(string uniqueId)
         {
-            var member = await _membersService.GetMemberAsync(userName);
+            var member = await _membersHttpClient.GetMemberAsync(uniqueId);
             return Ok(member);
         }
     }

@@ -10,6 +10,7 @@ import { MembersService } from 'src/app/_services/members.service';
 })
 export class MemberListComponent implements OnInit {
   members$: Observable<Member[]>;
+  searchText: string;
 
   constructor(private memberService: MembersService) {}
 
