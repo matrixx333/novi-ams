@@ -3,7 +3,7 @@ version: '3.4'
 services: 
 
   frontend:
-    image: novafrontend
+    image: matrixx333/novifrontend
     build:
       context: client
       dockerfile: Dockerfile
@@ -14,9 +14,9 @@ services:
     depends_on: 
       - backend
   backend:
-    image: novabackend
+    image: matrixx333/novibackend
     build: 
       context: Api
       dockerfile: Dockerfile
     ports: 
-      - "5000:80"
+      - "5000:5000"
