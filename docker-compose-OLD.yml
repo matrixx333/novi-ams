@@ -1,0 +1,22 @@
+version: '3.4'
+
+services: 
+
+  frontend:
+    image: matrixx333/novifrontend
+    build:
+      context: client
+      dockerfile: Dockerfile
+    environment: 
+      - backendUrl=http://backend
+    ports:
+      - "80:80"
+    depends_on: 
+      - backend
+  backend:
+    image: matrixx333/novibackend
+    build: 
+      context: Api
+      dockerfile: Dockerfile
+    ports: 
+      - "5000:5000"

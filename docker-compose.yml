@@ -1,22 +1,27 @@
-version: '3.4'
-
-services: 
-
-  frontend:
-    image: matrixx333/novifrontend
-    build:
+version: '3.5'
+services:
+  web:     
+    image: matrixx333/novifrontend 
+    build: 
       context: client
       dockerfile: Dockerfile
-    environment: 
-      - backendUrl=http://backend
+    container_name: web
+    depends_on:
+      - webapi   
     ports:
-      - "80:80"
-    depends_on: 
+        - "80:80" 
+    networks:
       - backend
-  backend:
+  webapi:    
     image: matrixx333/novibackend
     build: 
       context: Api
       dockerfile: Dockerfile
-    ports: 
-      - "5000:5000"
+    container_name: webapi
+    ports:
+        - "5000:5000"
+    networks:
+      - backend
+networks:
+  backend:
+    driver: "bridge"
